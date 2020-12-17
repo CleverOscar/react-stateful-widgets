@@ -1,38 +1,28 @@
-/*
-COUNTER Instructions
-
-Watch this short video carefully, paying attention to the UI and Chrome Devtools:
-https://tk-assets.lambdaschool.com/59036a85-0980-42c8-81ad-9afc8354497f_counter-clip.gif
-
-STEP 4:
-  This click handler needs to use 'setCount' to schedule the 'count' to become the current 'count' plus one.
-  These state changes are not synchronous: the updated count arrives on the next run of the Counter component.
-  Do NOT simply do count++. The plus plus is forbidden! We never mutate a slice of state in place. Even if you could
-  reassign a const, React would not be aware anything changed. Always use the state updater, passing in a new value.
-
-STEP 5:
-  This click handler needs to use 'setCount' to set the 'count' to be the current 'count' minus one.
-  Do NOT do count--. That amounts to trying to mutate 'count' in place. This is the road to perdition.
-
-STEP 6:
-  This click handler needs to use 'setCount' to set the 'count' to be zero again.
-*/
-
 import React from 'react'; 
-import react, { useState} from 'react'
+import { useState} from 'react'
 
 export default function Counter() {
 
-  const [count, setCount] = useState(0);
+  let [count, setCount] = useState(0);
 
   const increment = () => {
     /* STEP 4 */
+    setCount(count + 1);
+    console.log('Increment: ', count)
+    return count
   };
+  
   const decrement = () => {
     /* STEP 5 */
+    setCount(count - 1);
+    console.log('Decrement: ', count)
+    return count
   };
   const reset = () => {
     /* STEP 6 */
+    setCount(count = 0)
+    console.log('reset: ', count)
+    return count
   };
 
   const style = {
@@ -45,7 +35,7 @@ export default function Counter() {
     <div className='widget-counter container'>
       <h2>Counter</h2>
       <div id='count' style={style}>
-        Number {count} is {(count % 2) ? 'Odd' : 'Even'}
+        Number {count} is {(count % 2 === 0) ? 'Even' : 'Odd'}
       </div>
       <div>
         <button id='increment' onClick={increment}>Increment</button>
