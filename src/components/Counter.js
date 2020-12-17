@@ -6,20 +6,17 @@ export default function Counter() {
   let [count, setCount] = useState(0);
 
   const increment = () => {
-    /* STEP 4 */
     setCount(count + 1);
     console.log('Increment: ', count)
     return count
   };
   
   const decrement = () => {
-    /* STEP 5 */
     setCount(count - 1);
     console.log('Decrement: ', count)
     return count
   };
   const reset = () => {
-    /* STEP 6 */
     setCount(count = 0)
     console.log('reset: ', count)
     return count
