@@ -41,13 +41,11 @@ export default function Squares() {
   };
 
   const markActive = id => {
-    console.log("Marked Active ID:",id);
     if(activeSquare === id) {
       setActiveSquare(activeSquare = null);
     } else {
       setActiveSquare(activeSquare = id);
     }
-    // console.log("Active Status On: ",activeSquare)
   };
 
   return (
