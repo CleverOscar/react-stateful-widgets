@@ -1,26 +1,7 @@
 /*
-COUNTER Instructions
 
 Watch this short video carefully, paying attention to the UI and Chrome Devtools:
 https://tk-assets.lambdaschool.com/59036a85-0980-42c8-81ad-9afc8354497f_counter-clip.gif
-
-How many slices of state do you think are necessary to act as "sources of truth" for all
-the things that change in this widget? Give it some thought before continuing reading!
-
-A naive developer might say 3 different slices:
-  - The count
-  - Whether the text is color crimson or royalblue
-  - Whether the text reads "even" or "odd"
-
-But a single slice of state is all that's needed here: the count!
-The other things can simply be _derived_ from the count itself.
-
-STEP 0:
-  Start by studying the component below, and importing the state hook.
-
-STEP 1:
-  Using the state hook, create a 'count', 'setCount' pair.
-  The 'count' state should be initialized to the number zero.
 
 STEP 2:
   The 'style' object has the 'color' property hard-coded to "royalblue".
@@ -46,11 +27,11 @@ STEP 6:
   This click handler needs to use 'setCount' to set the 'count' to be zero again.
 */
 
-import React from 'react'; /* STEP 0 */
+import React, {useState} from 'react';
 
 export default function Counter() {
-  /* STEP 1 */
 
+  const [count, setCount] = useState( 0);
   const increment = () => {
     /* STEP 4 */
   };
@@ -64,7 +45,7 @@ export default function Counter() {
   const style = {
     fontSize: '1.5em',
     marginBottom: '0.3em',
-    color: 'royalblue', /* STEP 2 */
+    color: {count} ? 'royalblue' : 'crimson' 
   };
 
   return (
