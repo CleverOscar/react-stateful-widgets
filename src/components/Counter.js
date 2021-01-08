@@ -1,18 +1,13 @@
-/*
-
-Watch this short video carefully, paying attention to the UI and Chrome Devtools:
-https://tk-assets.lambdaschool.com/59036a85-0980-42c8-81ad-9afc8354497f_counter-clip.gif
-
-*/
-
 import React, {useState} from 'react';
 
 export default function Counter() {
+
 
   const [count, setCount] = useState(0);
   const increment = () => {
     setCount(count + 1)
   };
+  
   const decrement = () => {
     setCount(count - 1);
   };
