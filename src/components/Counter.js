@@ -1,38 +1,31 @@
-import React from 'react'; 
-import { useState} from 'react'
+import React, {useState} from 'react';
 
 export default function Counter() {
 
-  let [count, setCount] = useState(0);
 
+  const [count, setCount] = useState(0);
   const increment = () => {
-    setCount(count + 1);
-    console.log('Increment: ', count)
-    return count
+    setCount(count + 1)
   };
   
   const decrement = () => {
     setCount(count - 1);
-    console.log('Decrement: ', count)
-    return count
   };
   const reset = () => {
-    setCount(count = 0)
-    console.log('reset: ', count)
-    return count
+    setCount(0);
   };
 
   const style = {
     fontSize: '1.5em',
     marginBottom: '0.3em',
-    color: count % 2 ? 'crimson' : 'royalblue'
+    color: count % 2 == 0  ? 'royalblue' : 'crimson' 
   };
 
   return (
     <div className='widget-counter container'>
       <h2>Counter</h2>
       <div id='count' style={style}>
-        Number {count} is {(count % 2 === 0) ? 'Even' : 'Odd'}
+        Number {count} is {count % 2 == 0 ? 'even' : 'odd'}
       </div>
       <div>
         <button id='increment' onClick={increment}>Increment</button>
