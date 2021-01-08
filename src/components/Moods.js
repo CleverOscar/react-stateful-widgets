@@ -1,8 +1,8 @@
-import React, {useState} from 'react'; /* STEP 0 */
+import React, {useState} from 'react';
 
-const initialMood = 'Not sure how I feel';
-const happyMood = 'Quite happy!';
-const sadMood = 'Rather sad';
+const initialMood = 'Not sure how I feel'; // null
+const happyMood = 'Quite happy!'; // true
+const sadMood = 'Rather sad'; // false
 
 export default function Moods() {
   const [mood, setMood] = useState(initialMood) 
